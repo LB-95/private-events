@@ -1,0 +1,1 @@
+Private events is a small project in which users can create events an other can attened 
