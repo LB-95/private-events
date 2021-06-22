@@ -1,0 +1,10 @@
+<h1><%= @user.username %></h1>
+
+<h2>Hosted event's: </h2>
+
+<div>
+<% @user.events.order(:date).each do |event| %>
+    <%= event.date %> - <%= link_to event.title, event%>
+<% end %>
+</div>
+
