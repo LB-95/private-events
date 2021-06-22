@@ -1,2 +1,10 @@
-<h1> <%= @event.title %> </h1>
+<h1> <%= @event.title %> </h1><br><br>
+    <p>Written by User <%=@event.creator.email%></p><br>
+
+    <p>Date: <%= @event.date%></p><br>
+    <p>Location: <%= @event.location%></p><br>
+    <p>Description: <%= @event.description%><br><br>
+
+    <%= link_to "Events", root_path %>
+
 
