@@ -4,7 +4,21 @@
     <p>Date: <%= @event.date%></p><br>
     <p>Location: <%= @event.location%></p><br>
     <p>Description: <%= @event.description%><br><br>
+    
 
+    <p>Attendees: </p>
+    <% if @event.attendees.any? %>
+    <% @event.attendees.each do |attendee| %>
+    <ul>
+    <%= attendee.username%>
+    </ul>
+    <% end %>
+    <% else %>
+    <p>nobody yet</p>
+    <% end %>
+
+    <%= button_to "Join", invitations_path(event_id: @event.id, attendee_id: current_user.id) %>
+    
     <%= link_to "Events", root_path %>
 
 
