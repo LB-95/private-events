@@ -18,7 +18,12 @@
     <% end %>
 
     <%= button_to "Join", invitations_path(event_id: @event.id, attendee_id: current_user.id) %>
-    
+    <br><br>
+    <% if current_user == @event.creator %>
+    <%= link_to 'Edit', edit_event_path(@event) %>
+    <%= link_to 'Destroy', @event, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+    <br><br>
     <%= link_to "Events", root_path %>
 
 
