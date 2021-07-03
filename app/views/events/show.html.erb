@@ -1,5 +1,5 @@
 <h1> <%= @event.title %> </h1><br><br>
-    <p>Written by User <%=@event.creator.username%></p><br>
+    <p>Written by User <%= @event.creator.username%></p><br>
 
     <p>Date: <%= @event.date%></p><br>
     <p>Location: <%= @event.location%></p><br>
@@ -10,7 +10,7 @@
     <% if @event.attendees.any? %>
     <% @event.attendees.each do |attendee| %>
     <ul>
-    <%= attendee.username%>
+    <%= link_to attendee.username,user_path(attendee) %>
     </ul>
     <% end %>
     <% else %>

@@ -3,8 +3,26 @@
 <h2>Hosted event's: </h2>
 
 <div>
-<% @user.events.order(:date).each do |event| %>
+<% @user.created_events.each do |event| %>
     <%= event.date %> - <%= link_to event.title, event%>
+    <br><br>
 <% end %>
 </div>
 
+<% if @user.attended_events %>
+  <h3>Registered Events: </h3>
+  <% @user.attended_events.future.each do |event| %>
+    <%= link_to event.title,event_path(event) %><br />
+  <% end %>
+<% else %>
+  <h3>No events registered.</h3>
+<% end %>
+
+<% if @user.attended_events %>
+  <h3>Past Events: </h3>
+  <% @user.attended_events.past.each do |event| %>
+    <%= link_to event.title,event_path(event) %><br />
+  <% end %>
+<% else %>
+  <h3>No events attended.</h3>
+<% end %>

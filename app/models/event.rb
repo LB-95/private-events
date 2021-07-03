@@ -3,7 +3,8 @@ class Event < ApplicationRecord
     has_many :invitations
     has_many :attendees, through: :invitations
 
-
+    scope :past, -> {where("date < ?",DateTime.now)}
+    scope :future, -> {where("date >= ?",DateTime.now)}
 
 
     validates :title, presence: true
